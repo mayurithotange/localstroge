@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage</title>
+
+    <style>
+       
+.input{
+  border: 3px solid black;
+  height: 25px;
+  color:whitesmoke;
+  margin: 20px auto;
+  width: 300px;
+  display: block;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  background-color: pink;
+
+}
+
+.btn{
+  border: 2px solid black;
+  border-radius: 20px;
+  width: 65px;
+  margin-bottom: 30px;
+  margin: 20px;
+  background-color: pink;
+  
+  
+  
+  
+}
+
+.greet{
+  color: black;
+  font-weight: 700px;
+  font-size: 30px;
+  text-align: center;
+}
+.btn-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+    </style>
+</head>
+<body>
+
+      <input class="input"       type="text" id="name" placeholder="ENTER YOUR MESSSAGE"/>
+     <div class="btn-container">
+
+     
+      <button class="btn" id="save" onclick="save()">Save</button>
+      <button class="btn" id="logout" onclick="logout()">logout</button>
+    </div>
+      <p  class="greet"  id="greeting">HELLO GOOGLE </p>
+    
+    
+      <script>
+       
+       
+       
+        
+        function save()
+   {
+    const nameElement =document.getElementById('name');
+        
+        const greetingElement = document.getElementById('greeting'); 
+        const btnElement = document.getElementById('save');
+
+      if(!nameElement.value){
+          alert('Please enter your name');
+          return;
+      }
+      localStorage.setItem('name',nameElement.value);
+      greetingElement.innerText = `Hello ${nameElement.value}`;
+      
+      btnElement.style.display="none";
+      nameElement.style.display = "none";
+
+   }
+   
+   const username  =document.getElementById('name');
+      if(username){
+        greetingElement.innerText=`hello ${username}`;
+        btnElement.style.display="none";
+      nameElement.style.display = "none";
+
+      }
+        
+   
+      function logout(){
+          localStorage.removeItem('name');
+          window.location.reload();
+      }
+   
+        </script>
+</body>
+</html>
